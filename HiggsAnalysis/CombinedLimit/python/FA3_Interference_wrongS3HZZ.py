@@ -1,13 +1,13 @@
 from HiggsAnalysis.CombinedLimit.PhysicsModel import *
 import re
 
-class FA3_Interference(PhysicsModel):
+class FA3_Interference_wrongS3HZZ(PhysicsModel):
     def doParametersOfInterest(self):
         """Create POI and other parameters, and define the POI set."""
         xsecs = {
             "sigma1_HZZ": 290.58626,
-            #          "sigma3_HZZ": 581.17253,
-            "sigma3_HZZ": 44.670158,
+            "sigma3_HZZ": 581.17253,
+#            "sigma3_HZZ": 44.670158,
             "sigma1_VBF": 968.674,
             "sigma3_VBF": 10909.54,
             "sigma1_ZH":  9022.36,
@@ -71,4 +71,4 @@ class FA3_Interference(PhysicsModel):
         return 1
 
 
-FA3_Interference = FA3_Interference()
+FA3_Interference_wrongS3HZZ = FA3_Interference_wrongS3HZZ()
