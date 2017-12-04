@@ -60,7 +60,7 @@ class FA3_Interference_ggHSyst(PhysicsModel):
         self.modelBuilder.factory_('expr::bsmCoupling_ZH("@0*@1**2*{sigma3_ZH}/{sigma1_ZH} - @0*@1*@2*sqrt({sigma3_ZH}/{sigma1_ZH})", muV,a3,a1)'.format(**xsecs))
         self.modelBuilder.factory_('expr::bsmCoupling_WH("@0*@1**2*{sigma3_WH}/{sigma1_WH} - @0*@1*@2*sqrt({sigma3_WH}/{sigma1_WH})", muV,a3,a1)'.format(**xsecs))
 
-        self.modelBuilder.factory_('expr::bsmCoupling_ggH("@0*@1**2*{yield_Powheg_ggH}/{yield_BSM_ggH}", muf,a3_ggH)'.format(**xsecs))
+        self.modelBuilder.factory_('expr::bsmCoupling_ggH("@0*@1**2*{yield_Powheg_ggH}/{yield_SM_ggH}", muf,a3_ggH)'.format(**xsecs))
 
 
         self.modelBuilder.factory_('expr::intCoupling_VBF("@0*@1*@2*sqrt({sigma3_VBF}/{sigma1_VBF})*2", muV,a1,a3)'.format(**xsecs))
