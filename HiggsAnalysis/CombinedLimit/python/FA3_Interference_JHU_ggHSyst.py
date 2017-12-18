@@ -22,6 +22,9 @@ class FA3_Interference_JHU_ggHSyst(PhysicsModel):
             "sigmaL1_ZH": 33652.46e-6,
             "sigma2_WH": 3106339,
             "sigmaL1_WH": 11234.91e-5,
+            "sigmaa1a3int_VBF": 1937.15,
+            "sigmaa1a3int_ZH": 18044.72,
+            "sigmaa1a3int_WH": 61997.07,
             # for ggH what is listed are yields in histos (all normliazed to powheg xsection):
             "yield_Powheg_ggH": 5.127128e+00,
             "yield_SM_ggH": 7.937751e+01,
@@ -58,18 +61,27 @@ class FA3_Interference_JHU_ggHSyst(PhysicsModel):
         self.modelBuilder.factory_('expr::smCoupling_ggH("@0*@1**2", muf,a1_ggH)'.format(**xsecs))
 
         
+#        self.modelBuilder.factory_('expr::bsmCoupling_VBF("@0*@1**2*{sigma3_VBF}/{sigma1_VBF} - @0*@1*@2*sqrt({sigma3_VBF}/{sigma1_VBF})", muV,a3,a1)'.format(**xsecs))
+#        self.modelBuilder.factory_('expr::bsmCoupling_ZH("@0*@1**2*{sigma3_ZH}/{sigma1_ZH} - @0*@1*@2*sqrt({sigma3_ZH}/{sigma1_ZH})", muV,a3,a1)'.format(**xsecs))
+#        self.modelBuilder.factory_('expr::bsmCoupling_WH("@0*@1**2*{sigma3_WH}/{sigma1_WH} - @0*@1*@2*sqrt({sigma3_WH}/{sigma1_WH})", muV,a3,a1)'.format(**xsecs))
+
         self.modelBuilder.factory_('expr::bsmCoupling_VBF("@0*@1**2*{sigma3_VBF}/{sigma1_VBF} - @0*@1*@2*sqrt({sigma3_VBF}/{sigma1_VBF})", muV,a3,a1)'.format(**xsecs))
         self.modelBuilder.factory_('expr::bsmCoupling_ZH("@0*@1**2*{sigma3_ZH}/{sigma1_ZH} - @0*@1*@2*sqrt({sigma3_ZH}/{sigma1_ZH})", muV,a3,a1)'.format(**xsecs))
         self.modelBuilder.factory_('expr::bsmCoupling_WH("@0*@1**2*{sigma3_WH}/{sigma1_WH} - @0*@1*@2*sqrt({sigma3_WH}/{sigma1_WH})", muV,a3,a1)'.format(**xsecs))
+
 
 #        self.modelBuilder.factory_('expr::bsmCoupling_ggH("@0*@1**2*{yield_Powheg_ggH}/{yield_SM_ggH}", muf,a3_ggH)'.format(**xsecs))
 #        self.modelBuilder.factory_('expr::bsmCoupling_ggH("@0*@1**2*1./13.45", muf,a3_ggH)'.format(**xsecs))
         self.modelBuilder.factory_('expr::bsmCoupling_ggH("@0*@1**2", muf,a3_ggH)'.format(**xsecs))
 
 
-        self.modelBuilder.factory_('expr::intCoupling_VBF("@0*@1*@2*sqrt({sigma3_VBF}/{sigma1_VBF})*2", muV,a1,a3)'.format(**xsecs))
-        self.modelBuilder.factory_('expr::intCoupling_ZH("@0*@1*@2*sqrt({sigma3_ZH}/{sigma1_ZH})*2", muV,a1,a3)'.format(**xsecs))
-        self.modelBuilder.factory_('expr::intCoupling_WH("@0*@1*@2*sqrt({sigma3_WH}/{sigma1_WH})*2", muV,a1,a3)'.format(**xsecs))
+#        self.modelBuilder.factory_('expr::intCoupling_VBF("@0*@1*@2*sqrt({sigma3_VBF}/{sigma1_VBF})*2", muV,a1,a3)'.format(**xsecs))
+#        self.modelBuilder.factory_('expr::intCoupling_ZH("@0*@1*@2*sqrt({sigma3_ZH}/{sigma1_ZH})*2", muV,a1,a3)'.format(**xsecs))
+#        self.modelBuilder.factory_('expr::intCoupling_WH("@0*@1*@2*sqrt({sigma3_WH}/{sigma1_WH})*2", muV,a1,a3)'.format(**xsecs))
+
+        self.modelBuilder.factory_('expr::intCoupling_VBF("@0*@1*@2*sqrt({sigma3_VBF}/{sigma1_VBF})*{sigmaa1a3int_VBF}/{sigma1_VBF}", muV,a1,a3)'.format(**xsecs))
+        self.modelBuilder.factory_('expr::intCoupling_ZH("@0*@1*@2*sqrt({sigma3_ZH}/{sigma1_ZH})*{sigmaa1a3int_ZH}/{sigma1_ZH}", muV,a1,a3)'.format(**xsecs))
+        self.modelBuilder.factory_('expr::intCoupling_WH("@0*@1*@2*sqrt({sigma3_WH}/{sigma1_WH})*{sigmaa1a3int_WH}/{sigma1_WH}", muV,a1,a3)'.format(**xsecs))
 
 
     def getYieldScale(self,bin,process):

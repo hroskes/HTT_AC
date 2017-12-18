@@ -108,6 +108,13 @@ void BinByBinFactory::AddBinByBin(CombineHarvester &src, CombineHarvester &dest)
   src.ForEachProc([&](Process *p) { 
     procs.push_back(p);
   });
+
+  std::vector<std::string> all_mc_bkgs = {
+    "ZL","ZJ","ZTT","TTJ","TTT","TT",
+    "W","W_rest","ZJ_rest","TTJ_rest","VVJ_rest","VV","VVT","VVJ",
+    "ggH_hww125","qqH_hww125","EWKZ","QCD","ttbar"};
+  
+
   for (unsigned i = 0; i < procs.size(); ++i) {
     if (!procs[i]->shape()) continue;
     TH1 const* h = procs[i]->shape();
@@ -175,6 +182,13 @@ void BinByBinFactory::AddBinByBin(CombineHarvester &src, CombineHarvester &dest)
         boost::replace_all(name, "$PROCESS", sys.process());
         boost::replace_all(name, "$MASS", sys.mass());
         boost::replace_all(name, "$#", boost::lexical_cast<std::string>(j));
+
+	//	if (all_mc_bkgs.Contains(sys.process())){
+	if (sys.process()=="ZL" or sys.process()=="ZJ" or sys.process()=="ZTT" or sys.process()=="TTJ" or sys.process()=="TTT" or sys.process()=="TT" or sys.process()=="W" or sys.process()=="W_rest" or sys.process()=="ZJ_rest" or sys.process()=="TTJ_rest" or sys.process()=="VVJ_rest" or sys.process()=="VV" or sys.process()=="VVT" or sys.process()=="VVJ" or sys.process()=="EWKZ" or sys.process()=="QCD" or sys.process()=="ttbar"){
+	  boost::replace_all(name, "_DCP_plus", "");
+	  boost::replace_all(name, "_DCP_minus", "");
+	}
+
         sys.set_name(name);
         sys.set_asymm(true);
         std::unique_ptr<TH1> h_d(static_cast<TH1 *>(h->Clone()));

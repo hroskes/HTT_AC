@@ -1,5 +1,12 @@
 <bin file="MorphingSM2016.cpp" name="MorphingSM2016"></bin>
+<bin file="MorphingSM2016_D0merged.cpp" name="MorphingSM2016_D0merged"></bin>
+<bin file="MorphingSM2016_D0merged_DCP.cpp" name="MorphingSM2016_D0merged_DCP"></bin>
+<bin file="MorphingSM2016_D0merged_DCP_ggHSyst.cpp" name="MorphingSM2016_D0merged_DCP_ggHSyst"></bin>
+<bin file="MorphingSM2016_D0merged_DCP_ggHSyst_fa2.cpp" name="MorphingSM2016_D0merged_DCP_ggHSyst_fa2"></bin>
+<bin file="MorphingSM2016_D0merged_DCP_fa2.cpp" name="MorphingSM2016_D0merged_DCP_fa2"></bin>
+<bin file="MorphingSM2016_D0merged_fa2.cpp" name="MorphingSM2016_D0merged_fa2"></bin>
 <bin file="MorphingSM2016_no0M.cpp" name="MorphingSM2016_no0M"></bin>
+<bin file="MorphingSM2016_no0M_D0merged.cpp" name="MorphingSM2016_no0M_D0merged"></bin>
 <bin file="SBWeighted_HTT.cpp" name="SBWeighted_HTT"></bin>
 <use name="root"/>
 <use name="rootmath"/>

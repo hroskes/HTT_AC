@@ -131,8 +131,8 @@ int main(int argc, char** argv) {
     
     
     //    VString chns = {"mt","et","tt","em"};
-    //    VString chns = {"mt","et","tt"};
-    VString chns = {"tt"};
+    VString chns = {"mt","et","tt"};
+    //    VString chns = {"tt"};
     if (mm_fit) chns.push_back("mm");
     if (ttbar_fit) chns.push_back("ttbar");
     
