@@ -42,8 +42,13 @@ differences wrt running fa3 are:
 # files with running limits commands:
 for 1D scans:
     /afs/cern.ch/user/s/senka/public/forYurii/run*
-for 2D scan:
+    
+for 2D scan (fa3):
     python ../../AC_kappaV_Multithreading_FITTER_exp_ggH_6k.py
+
+for 2D scan (fa2):
+    python ../../AC_kappaV_Multithreading_FITTER_exp_6k.py
+    
 hadd outputs and plot:
     python ../../CombineHarvester/scripts/plotMultiDimFit_CVAC_fa3.py higgsCombineCvAC_FITTER_exp_m0p1to0p1_6k.0to7.MultiDimFit.mH125.root --x-title #mu_{V} --y-title f_{a3} --sm-exp SM_EXP --cms-sub ""
 
