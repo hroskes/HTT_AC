@@ -1,7 +1,7 @@
 from HiggsAnalysis.CombinedLimit.PhysicsModel import *
 import re
 
-class FA3_Interference_JHU_ggHSyst(PhysicsModel):
+class FA3_Interference_JHU_ggHSyst_rw(PhysicsModel):
     def doParametersOfInterest(self):
         """Create POI and other parameters, and define the POI set."""
         xsecs = {
@@ -91,25 +91,25 @@ class FA3_Interference_JHU_ggHSyst(PhysicsModel):
             return 'smCoupling_ggH'
         if process in ["GGH2Jets_pseudoscalar_M",]:
             return 'bsmCoupling_ggH'
-        if process in ["qqH_htt_0PM",]:
+        if process in ["reweighted_qqH_htt_0PM",]:
             return 'smCoupling_VBF'
-        if process in ["WH_htt_0PM",]:
+        if process in ["reweighted_WH_htt_0PM",]:
             return 'smCoupling_WH'
-        if process in ["ZH_htt_0PM",]:
+        if process in ["reweighted_ZH_htt_0PM",]:
             return 'smCoupling_ZH'
-        if process in ["qqH_htt_0M",]:
+        if process in ["reweighted_qqH_htt_0M",]:
             return 'bsmCoupling_VBF'
-        if process in ["WH_htt_0M",]:
+        if process in ["reweighted_WH_htt_0M",]:
             return 'bsmCoupling_WH'
-        if process in ["ZH_htt_0M",]:
+        if process in ["reweighted_ZH_htt_0M",]:
             return 'bsmCoupling_ZH'
-        if process in ["qqH_htt_0Mf05ph0"]:
+        if process in ["reweighted_qqH_htt_0Mf05ph0"]:
             return 'intCoupling_VBF'
-        if process in ["ZH_htt_0Mf05ph0"]:
+        if process in ["reweighted_ZH_htt_0Mf05ph0"]:
             return 'intCoupling_ZH'
-        if process in ["WH_htt_0Mf05ph0"]:
+        if process in ["reweighted_WH_htt_0Mf05ph0"]:
             return 'intCoupling_WH'
         return 1
 
 
-FA3_Interference_JHU_ggHSyst = FA3_Interference_JHU_ggHSyst()
+FA3_Interference_JHU_ggHSyst_rw = FA3_Interference_JHU_ggHSyst_rw()
