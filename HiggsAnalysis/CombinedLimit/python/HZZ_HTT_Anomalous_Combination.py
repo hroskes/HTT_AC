@@ -4,7 +4,13 @@ from FL1_Interference_JHU_rw_HZZ import FL1_Interference_JHU_rw_HZZ
 from FL1Zg_Interference_JHU_rw_HZZ import FL1Zg_Interference_JHU_rw_HZZ
 from SpinZeroStructure import MultiSignalSpinZeroHiggs
 
-class FA2_Interference_JHU_rw_HZZ_HTT_Combination(FA2_Interference_JHU_rw_HZZ, MultiSignalSpinZeroHiggs): pass
-class FA3_Interference_JHU_ggHSyst_rw_HZZ_HTT_Combination(FA3_Interference_JHU_ggHSyst_rw_HZZ, MultiSignalSpinZeroHiggs): pass
-class FL1_Interference_JHU_rw_HZZ_HTT_Combination(FL1_Interference_JHU_rw_HZZ, MultiSignalSpinZeroHiggs): pass
-class FL1Zg_Interference_JHU_rw_HZZ_HTT_Combination(FL1Zg_Interference_JHU_rw_HZZ, MultiSignalSpinZeroHiggs): pass
+def callclass(cls): return cls()
+
+@callclass
+class FA2_Interference_JHU_rw_HZZ_HTT_Combination(type(FA2_Interference_JHU_rw_HZZ), MultiSignalSpinZeroHiggs): pass
+@callclass
+class FA3_Interference_JHU_ggHSyst_rw_HZZ_HTT_Combination(type(FA3_Interference_JHU_ggHSyst_rw_HZZ), MultiSignalSpinZeroHiggs): pass
+@callclass
+class FL1_Interference_JHU_rw_HZZ_HTT_Combination(type(FL1_Interference_JHU_rw_HZZ), MultiSignalSpinZeroHiggs): pass
+@callclass
+class FL1Zg_Interference_JHU_rw_HZZ_HTT_Combination(type(FL1Zg_Interference_JHU_rw_HZZ), MultiSignalSpinZeroHiggs): pass
